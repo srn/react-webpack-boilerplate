@@ -18,8 +18,8 @@ var IndexComponent = React.createClass({
       <section>
         <h2>react-webpack-boilerplate</h2>
         <ul ref="indexList" className="index-list">
-          {this.props.items.map(function(item){
-            return <li>item {item}</li>
+          {this.props.items.map(function(item, index){
+            return <li key={index}>item {item}</li>
           })}
         </ul>
       </section>
