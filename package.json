@@ -4,7 +4,9 @@
   "description": "Simple production ready boilerplate for React, Webpack (sass and React hot reloading), tests and coverage.",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/karma/bin/karma start --single-run"
+    "test": "./node_modules/karma/bin/karma start --single-run",
+    "travis": "./node_modules/karma/bin/karma start --single-run && cat ./coverage/lcov/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "postinstall": "node ./node_modules/webpack/bin/webpack.js -p -d"
   },
   "repository": {
     "type": "git",
@@ -24,5 +26,29 @@
   "bugs": {
     "url": "https://github.com/srn/react-webpack-boilerplate/issues"
   },
-  "homepage": "https://github.com/srn/react-webpack-boilerplate"
+  "homepage": "https://github.com/srn/react-webpack-boilerplate",
+  "dependencies": {
+    "compression": "^1.1.0",
+    "css-loader": "^0.8.0",
+    "ejs": "^1.0.0",
+    "express": "^4.9.5",
+    "istanbul": "^0.3.2",
+    "jsx-loader": "^0.11.0",
+    "react-mini-router": "^0.2.6",
+    "sass-loader": "^0.2.0",
+    "style-loader": "^0.8.0",
+    "webpack": "^1.4.1-beta1"
+  },
+  "devDependencies": {
+    "coveralls": "^2.11.2",
+    "istanbul-instrumenter-loader": "^0.1.2",
+    "karma": "0.12.23",
+    "karma-cli": "0.0.4",
+    "karma-coverage": "^0.2.6",
+    "karma-jasmine": "0.2.2",
+    "karma-phantomjs-launcher": "0.1.4",
+    "karma-webpack": "^1.2.2",
+    "react-hot-loader": "0.4.5",
+    "webpack-dev-server": "1.6.5"
+  }
 }
