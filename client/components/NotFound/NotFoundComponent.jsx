@@ -9,6 +9,7 @@ var NotFoundComponent = React.createClass({
         <p>
           <img src="http://i.imgur.com/ooWW6.gif" />
         </p>
+        <p><a href="/">Go to index</a></p>
       </section>
     );
   }
