@@ -1,4 +1,6 @@
-# react-webpack-boilerplate [![Build Status](http://img.shields.io/travis/srn/react-webpack-boilerplate.svg?style=flat-square)](https://travis-ci.org/srn/react-webpack-boilerplate) [![Build Status](http://img.shields.io/coveralls/srn/react-webpack-boilerplate.svg?style=flat-square)](https://coveralls.io/r/srn/react-webpack-boilerplate) [![Dependency Status](http://img.shields.io/gemnasium/srn/react-webpack-boilerplate.svg?style=flat-square)](https://gemnasium.com/srn/react-webpack-boilerplate)
+# react-webpack-boilerplate
+
+[![Build Status](http://img.shields.io/travis/srn/react-webpack-boilerplate.svg?style=flat-square)](https://travis-ci.org/srn/react-webpack-boilerplate) [![Build Status](http://img.shields.io/coveralls/srn/react-webpack-boilerplate.svg?style=flat-square)](https://coveralls.io/r/srn/react-webpack-boilerplate) [![Dependency Status](http://img.shields.io/gemnasium/srn/react-webpack-boilerplate.svg?style=flat-square)](https://gemnasium.com/srn/react-webpack-boilerplate)
 
 ## Install
 
