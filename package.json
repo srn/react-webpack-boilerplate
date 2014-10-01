@@ -1,0 +1,28 @@
+{
+  "name": "react-webpack-boilerplate",
+  "version": "1.0.0",
+  "description": "Simple production ready boilerplate for React, Webpack (sass and React hot reloading), tests and coverage.",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/karma/bin/karma start --single-run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/srn/react-webpack-boilerplate.git"
+  },
+  "keywords": [
+    "react",
+    "webpack",
+    "boilerplate",
+    "production",
+    "sass",
+    "hot",
+    "reload"
+  ],
+  "author": "Søren Brokær <root@srn.io> (http://srn.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/srn/react-webpack-boilerplate/issues"
+  },
+  "homepage": "https://github.com/srn/react-webpack-boilerplate"
+}
