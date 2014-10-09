@@ -2,14 +2,21 @@ var path = require('path');
 var express = require('express');
 var app = express();
 var compress = require('compression');
+var layouts = require('express-ejs-layouts');
 
+app.set('layout');
+app.set('view engine', 'ejs');
 app.use(compress());
 app.use("/client", express.static(path.join(__dirname, 'client')));
-app.set('view engine', 'ejs');
+app.use(layouts);
 
 var env = {
   production: process.env['NODE_ENV'] === 'production'
 };
+
+app.get('/page', function(req, res) {
+  res.render('page');
+});
 
 app.get('/*', function(req, res) {
   res.render('index', {
