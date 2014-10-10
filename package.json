@@ -38,7 +38,8 @@
     "react-mini-router": "^0.2.6",
     "sass-loader": "^0.2.0",
     "style-loader": "^0.8.0",
-    "webpack": "^1.4.1-beta1"
+    "webpack": "^1.4.1-beta1",
+    "bluebird": "^2.3.5"
   },
   "devDependencies": {
     "coveralls": "^2.11.2",
