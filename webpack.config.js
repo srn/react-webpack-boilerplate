@@ -62,7 +62,7 @@ var exports = {
       },
       {
         test: /\.jsx$/,
-        loaders: ['jsx?insertPragma=React.DOM']
+        loaders: ['react-hot', 'jsx?insertPragma=React.DOM']
       }
     ]
   }
