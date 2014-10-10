@@ -2,14 +2,31 @@ var webpack = require("webpack");
 var path = require('path');
 
 var env = {
-  production: process.env['NODE_ENV'] === 'production'
+  production: true // process.env['NODE_ENV'] === 'production'
 };
 
-var entry = [
-  './client/app'
-];
+var addDevServerEntryPoint = function (entryPoint) {
+  if (env.production === false) {
+    var entries = [
+      'webpack-dev-server/client?http://localhost:3000',
+      'webpack/hot/dev-server',
+      entryPoint
+    ];
+    return entries;
+  } else {
+    return entryPoint;
+  }
+};
 
-var plugins = [];
+var entry = {
+  index: addDevServerEntryPoint('./client/entryPoints/index'),
+  contacts: addDevServerEntryPoint('./client/entryPoints/contacts'),
+  'common.js': './client/entryPoints/common.js'
+};
+
+var plugins = [
+  new webpack.optimize.CommonsChunkPlugin('common', 'common.js', (entry.length))
+];
 
 if (env.production) {
   plugins.push(new webpack.optimize.DedupePlugin());
@@ -17,9 +34,6 @@ if (env.production) {
 }
 
 if (env.production === false) {
-  entry.unshift('webpack/hot/dev-server');
-  entry.unshift('webpack-dev-server/client?http://localhost:3000');
-
   plugins.push(new webpack.HotModuleReplacementPlugin());
 }
 
@@ -29,7 +43,7 @@ var exports = {
   output: {
     path: env.production ? path.join('client', 'build') : __dirname,
 
-    filename: "bundle.js",
+    filename: "[name].entry.js",
 
     publicPath: env.production ? 'http://www.production-site.com' : 'http://localhost:3000/client/'
   },

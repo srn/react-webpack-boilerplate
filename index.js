@@ -6,22 +6,30 @@ var layouts = require('express-ejs-layouts');
 
 app.set('layout');
 app.set('view engine', 'ejs');
+app.set('view options', { layout:'layout' });
+
 app.use(compress());
 app.use("/client", express.static(path.join(__dirname, 'client')));
 app.use(layouts);
 
 var env = {
-  production: process.env['NODE_ENV'] === 'production'
+  production: true // process.env['NODE_ENV'] === 'production'
 };
 
-app.get('/page', function(req, res) {
-  res.render('page');
+app.get('/contacts', function(req, res) {
+  res.render('contacts', {
+    locals: {
+      entryPoint: 'contacts',
+      env: env
+    }
+  });
 });
 
 app.get('/*', function(req, res) {
   res.render('index', {
     locals: {
-      env: env
+      env: env,
+      entryPoint: 'index'
     }
   });
 });
