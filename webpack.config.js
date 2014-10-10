@@ -37,6 +37,12 @@ if (env.production === false) {
   plugins.push(new webpack.HotModuleReplacementPlugin());
 }
 
+var jsxLoaders = ['jsx?insertPragma=React.DOM'];
+
+if (env.production) {
+  jsxLoaders.unshift('react-hot');
+}
+
 var exports = {
   entry: entry,
 
@@ -62,7 +68,7 @@ var exports = {
       },
       {
         test: /\.jsx$/,
-        loaders: ['react-hot', 'jsx?insertPragma=React.DOM']
+        loaders: jsxLoaders
       }
     ]
   }
