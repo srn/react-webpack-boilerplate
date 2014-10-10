@@ -5,6 +5,8 @@ var compress = require('compression');
 var layouts = require('express-ejs-layouts');
 var fs = require('fs');
 
+var Promise = require("bluebird");
+
 app.set('layout');
 app.set('view engine', 'ejs');
 app.set('view options', { layout:'layout' });
@@ -17,17 +19,28 @@ var env = {
   production: true // process.env['NODE_ENV'] === 'production'
 };
 
-app.get('/contacts', function(req, res) {
-  fs.readFile(path.join(__dirname, 'client/build/common.js'), { encoding: 'utf8' }, function(err, data) {
-    if (err) {
-      throw err;
-    }
+var retrieveCommonFileData = function (filePath) {
+  return new Promise(function (resolve, reject) {
+    fs.readFile(path.join(__dirname, filePath), { encoding: 'utf8' }, function(err, data) {
+      if (err) {
+        reject(err);
+      }
 
+      resolve(data);
+    });
+  });
+};
+
+app.get('/contacts', function(req, res) {
+  var common = retrieveCommonFileData('client/build/common.js');
+
+  // use settle for future usage
+  Promise.settle([common]).done(function (results) {
     res.render('contacts', {
       locals: {
         entryPoint: 'contacts',
         env: env,
-        inlineCommon: data
+        inlineCommon: results[0].value()
       }
     });
   });
