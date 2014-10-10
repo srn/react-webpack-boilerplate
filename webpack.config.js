@@ -25,7 +25,7 @@ var entry = {
 };
 
 var plugins = [
-  new webpack.optimize.CommonsChunkPlugin('common', 'common.js', (entry.length))
+  new webpack.optimize.CommonsChunkPlugin('common', 'common.js')
 ];
 
 if (env.production) {
