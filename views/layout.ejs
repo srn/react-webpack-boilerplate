@@ -4,5 +4,13 @@
 	</head>
 	<body>
 		<%-body%>
-	</body>
+
+    <% if (env.production) { %>
+      <script src="/client/build/common.js"></script>
+      <script async src="/client/build/<%= entryPoint %>.entry.js"></script>
+    <% } else { %>
+      <script src="http://localhost:3000/client/common.js"></script>
+      <script src="http://localhost:3000/client/<%= entryPoint %>.entry.js"></script>
+    <% } %>
+  </body>
 </html>
