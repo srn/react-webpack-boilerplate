@@ -1,5 +1,7 @@
 var React = require('react');
 
+require('./common-styles');
+
 var ContactsComponent = React.createClass({
   render: function() {
     return (

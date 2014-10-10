@@ -3,6 +3,7 @@ var express = require('express');
 var app = express();
 var compress = require('compression');
 var layouts = require('express-ejs-layouts');
+var fs = require('fs');
 
 app.set('layout');
 app.set('view engine', 'ejs');
@@ -17,11 +18,18 @@ var env = {
 };
 
 app.get('/contacts', function(req, res) {
-  res.render('contacts', {
-    locals: {
-      entryPoint: 'contacts',
-      env: env
+  fs.readFile(path.join(__dirname, 'client/build/common.js'), { encoding: 'utf8' }, function(err, data) {
+    if (err) {
+      throw err;
     }
+
+    res.render('contacts', {
+      locals: {
+        entryPoint: 'contacts',
+        env: env,
+        inlineCommon: data
+      }
+    });
   });
 });
 
