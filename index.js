@@ -31,22 +31,8 @@ var retrieveCommonFileData = function (filePath) {
   });
 };
 
-app.get('/contacts', function(req, res) {
-  var common = retrieveCommonFileData('client/build/common.js');
-
-  // use settle for future usage
-  Promise.settle([common]).done(function (results) {
-    res.render('contacts', {
-      locals: {
-        entryPoint: 'contacts',
-        env: env,
-        inlineCommon: results[0].value()
-      }
-    });
-  });
-});
-
 app.get('/*', function(req, res) {
+  /*
   var common = retrieveCommonFileData('client/build/common.js');
 
   // use settle for future usage
@@ -58,6 +44,14 @@ app.get('/*', function(req, res) {
         inlineCommon: results[0].value()
       }
     });
+  });
+  */
+
+  res.render('index', {
+    locals: {
+      env: env,
+      entryPoint: 'index'
+    }
   });
 });
 
