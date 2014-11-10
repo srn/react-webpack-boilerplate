@@ -1,15 +1,41 @@
 var webpack = require("webpack");
 var path = require('path');
 
+var currentEnv = process.env['NODE_ENV'];
+
 var env = {
-  production: process.env['NODE_ENV'] === 'production'
+  production: currentEnv === 'production',
+  development: currentEnv === 'development',
+  test: currentEnv === 'test'
 };
 
-var entry = [
-  './client/app'
-];
+var addDevServerEntryPoint = function (entryPoint) {
+  if (currentEnv !== 'production') {
+    var entries = [
+      'webpack-dev-server/client?http://localhost:3000',
+      'webpack/hot/dev-server',
+      entryPoint
+    ];
+    return entries;
+  } else {
+    return entryPoint;
+  }
+};
+
+var entry = {
+  index: addDevServerEntryPoint('./client/entryPoints/index'),
+  contacts: addDevServerEntryPoint('./client/entryPoints/contacts')
+};
+
+if (currentEnv !== 'test') {
+  entry['common.js'] = './client/entryPoints/common.js'
+}
 
 var plugins = [];
+
+if (currentEnv !== 'test') {
+  plugins.push(new webpack.optimize.CommonsChunkPlugin('common', 'common.js'));
+}
 
 if (env.production) {
   plugins.push(new webpack.optimize.DedupePlugin());
@@ -17,19 +43,22 @@ if (env.production) {
 }
 
 if (env.production === false) {
-  entry.unshift('webpack/hot/dev-server');
-  entry.unshift('webpack-dev-server/client?http://localhost:3000');
-
   plugins.push(new webpack.HotModuleReplacementPlugin());
+}
+
+var jsxLoaders = ['jsx?insertPragma=React.DOM'];
+
+if (env.production === false) {
+  jsxLoaders.unshift('react-hot');
 }
 
 var exports = {
   entry: entry,
 
   output: {
-    path: env.production ? path.join('client', 'build') : __dirname,
+    path: env.production ? path.join('client', 'build') : __dirname + '/client',
 
-    filename: "bundle.js",
+    filename: "[name].entry.js",
 
     publicPath: env.production ? 'http://www.production-site.com' : 'http://localhost:3000/client/'
   },
@@ -48,7 +77,7 @@ var exports = {
       },
       {
         test: /\.jsx$/,
-        loaders: ['jsx?insertPragma=React.DOM']
+        loaders: jsxLoaders
       }
     ]
   }

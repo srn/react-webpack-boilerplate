@@ -1,9 +1,9 @@
+require('./common-styles');
+
 var React = require('react');
 
-require("!style!css!sass!./main.scss");
-
-var IndexComponent = require('./components/Index/IndexComponent');
-var NotFoundComponent = require('./components/NotFound/NotFoundComponent');
+var IndexComponent = require('../components/Index/IndexComponent');
+var NotFoundComponent = require('../components/NotFound/NotFoundComponent');
 
 var Router = require('react-mini-router');
 
@@ -37,3 +37,5 @@ var MainComponent = React.createClass({
 });
 
 React.renderComponent(<MainComponent history={true} />, document.body);
+
+module.exports = MainComponent;

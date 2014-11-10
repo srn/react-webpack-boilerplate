@@ -2,19 +2,55 @@ var path = require('path');
 var express = require('express');
 var app = express();
 var compress = require('compression');
+var layouts = require('express-ejs-layouts');
+var fs = require('fs');
+
+var Promise = require("bluebird");
+
+app.set('layout');
+app.set('view engine', 'ejs');
+app.set('view options', { layout:'layout' });
 
 app.use(compress());
 app.use("/client", express.static(path.join(__dirname, 'client')));
-app.set('view engine', 'ejs');
+app.use(layouts);
 
 var env = {
   production: process.env['NODE_ENV'] === 'production'
 };
 
+var retrieveCommonFileData = function (filePath) {
+  return new Promise(function (resolve, reject) {
+    fs.readFile(path.join(__dirname, filePath), { encoding: 'utf8' }, function(err, data) {
+      if (err) {
+        reject(err);
+      }
+
+      resolve(data);
+    });
+  });
+};
+
 app.get('/*', function(req, res) {
+  /*
+  var common = retrieveCommonFileData('client/build/common.js');
+
+  // use settle for future usage
+  Promise.settle([common]).done(function (results) {
+    res.render('index', {
+      locals: {
+        env: env,
+        entryPoint: 'index',
+        inlineCommon: results[0].value()
+      }
+    });
+  });
+  */
+
   res.render('index', {
     locals: {
-      env: env
+      env: env,
+      entryPoint: 'index'
     }
   });
 });

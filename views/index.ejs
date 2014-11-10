@@ -1,16 +1,1 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>react-webpack-boilerplate</title>
-  <meta name="viewport" content="initial-scale=1.0" />
-</head>
-<body>
-
-<% if (env.production) { %>
-  <script async src="/client/build/bundle.js"></script>
-<% } else { %>
-  <script src="http://localhost:3000/client/bundle.js"></script>
-<% } %>
-
-</body>
-</html>
+<p>index - <%= entryPoint %></p>

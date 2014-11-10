@@ -4,8 +4,8 @@
   "description": "Simple production ready boilerplate for React, Webpack (sass and React hot reloading), tests and coverage.",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/karma/bin/karma start --single-run",
-    "travis": "./node_modules/karma/bin/karma start --single-run && cat ./coverage/lcov/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "test": "NODE_ENV=test ./node_modules/karma/bin/karma start --single-run",
+    "travis": "NODE_ENV=test ./node_modules/karma/bin/karma start --single-run && cat ./coverage/lcov/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "postinstall": "node ./node_modules/webpack/bin/webpack.js -p -d"
   },
   "repository": {
@@ -32,12 +32,14 @@
     "css-loader": "^0.8.0",
     "ejs": "^1.0.0",
     "express": "^4.9.5",
+    "express-ejs-layouts": "^1.1.0",
     "istanbul": "^0.3.2",
     "jsx-loader": "^0.11.0",
     "react-mini-router": "^0.2.6",
     "sass-loader": "^0.2.0",
     "style-loader": "^0.8.0",
-    "webpack": "^1.4.1-beta1"
+    "webpack": "1.4.13",
+    "bluebird": "^2.3.5"
   },
   "devDependencies": {
     "coveralls": "^2.11.2",
