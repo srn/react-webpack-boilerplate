@@ -47,11 +47,17 @@ app.get('/contacts', function(req, res) {
 });
 
 app.get('/*', function(req, res) {
-  res.render('index', {
-    locals: {
-      env: env,
-      entryPoint: 'index'
-    }
+  var common = retrieveCommonFileData('client/build/common.js');
+
+  // use settle for future usage
+  Promise.settle([common]).done(function (results) {
+    res.render('index', {
+      locals: {
+        env: env,
+        entryPoint: 'index',
+        inlineCommon: results[0].value()
+      }
+    });
   });
 });
 
