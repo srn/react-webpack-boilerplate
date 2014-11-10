@@ -16,7 +16,7 @@ app.use("/client", express.static(path.join(__dirname, 'client')));
 app.use(layouts);
 
 var env = {
-  production: true // process.env['NODE_ENV'] === 'production'
+  production: process.env['NODE_ENV'] === 'production'
 };
 
 var retrieveCommonFileData = function (filePath) {
