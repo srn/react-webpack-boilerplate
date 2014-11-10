@@ -1,12 +1,16 @@
 var webpack = require("webpack");
 var path = require('path');
 
+var currentEnv = process.env['NODE_ENV'];
+
 var env = {
-  production: true // process.env['NODE_ENV'] === 'production'
+  production: currentEnv === 'production',
+  development: currentEnv === 'development',
+  test: currentEnv === 'test'
 };
 
 var addDevServerEntryPoint = function (entryPoint) {
-  if (env.production === false) {
+  if (currentEnv !== 'production') {
     var entries = [
       'webpack-dev-server/client?http://localhost:3000',
       'webpack/hot/dev-server',
@@ -20,13 +24,18 @@ var addDevServerEntryPoint = function (entryPoint) {
 
 var entry = {
   index: addDevServerEntryPoint('./client/entryPoints/index'),
-  contacts: addDevServerEntryPoint('./client/entryPoints/contacts'),
-  'common.js': './client/entryPoints/common.js'
+  contacts: addDevServerEntryPoint('./client/entryPoints/contacts')
 };
 
-var plugins = [
-  new webpack.optimize.CommonsChunkPlugin('common', 'common.js')
-];
+if (currentEnv !== 'test') {
+  entry['common.js'] = './client/entryPoints/common.js'
+}
+
+var plugins = [];
+
+if (currentEnv !== 'test') {
+  plugins.push(new webpack.optimize.CommonsChunkPlugin('common', 'common.js'));
+}
 
 if (env.production) {
   plugins.push(new webpack.optimize.DedupePlugin());
