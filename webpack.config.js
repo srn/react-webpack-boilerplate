@@ -48,7 +48,7 @@ if (env.production === false) {
 
 var jsxLoaders = ['jsx?insertPragma=React.DOM'];
 
-if (env.production) {
+if (env.production === false) {
   jsxLoaders.unshift('react-hot');
 }
 
@@ -56,7 +56,7 @@ var exports = {
   entry: entry,
 
   output: {
-    path: env.production ? path.join('client', 'build') : __dirname,
+    path: env.production ? path.join('client', 'build') : __dirname + '/client',
 
     filename: "[name].entry.js",
 
