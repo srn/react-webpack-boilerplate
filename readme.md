@@ -16,7 +16,7 @@ $ npm install
 ## Development
 
 ```sh
-$ node index
+$ npm start
 ```
 
 Go to [http://localhost:3001](http://localhost:3001) and see the magic happen.
