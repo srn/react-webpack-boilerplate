@@ -1,5 +1,5 @@
 # react-webpack-boilerplate
-[![Build Status](http://img.shields.io/travis/srn/react-webpack-boilerplate.svg?style=flat-square)](https://travis-ci.org/srn/react-webpack-boilerplate) [![Build Status](http://img.shields.io/coveralls/srn/react-webpack-boilerplate.svg?style=flat-square)](https://coveralls.io/r/srn/react-webpack-boilerplate) [![Dependency Status](http://img.shields.io/gemnasium/srn/react-webpack-boilerplate.svg?style=flat-square)](https://gemnasium.com/srn/react-webpack-boilerplate)
+[![Build Status](http://img.shields.io/travis/srn/react-webpack-boilerplate.svg?style=flat-square)](https://travis-ci.org/srn/react-webpack-boilerplate) [![Dependency Status](http://img.shields.io/gemnasium/srn/react-webpack-boilerplate.svg?style=flat-square)](https://gemnasium.com/srn/react-webpack-boilerplate) [![Build Status](http://img.shields.io/coveralls/srn/react-webpack-boilerplate.svg?style=flat-square)](https://coveralls.io/r/srn/react-webpack-boilerplate)
 
 Simple production-ready boilerplate for [React](http://facebook.github.io/react/) and [Webpack](http://webpack.github.io/) (SASS and React hot reloading)
 
@@ -27,6 +27,12 @@ If you want to run the project in production, set the `NODE_ENV` environment var
 
 ```sh
 $ NODE_ENV=production npm start
+```
+
+Also build the production bundle:
+
+```sh
+$ NODE_ENV=production npm run dist
 ```
 
 ## Tests
