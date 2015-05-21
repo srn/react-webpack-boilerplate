@@ -1,13 +1,11 @@
+jest.dontMock('./IndexComponent.jsx');
+
 var React = require('react/addons');
 
-var IndexComponent = require('./IndexComponent');
-var ReactTestUtils;
+var IndexComponent = require('./IndexComponent.jsx');
+var ReactTestUtils = React.addons.TestUtils;
 
 describe('IndexComponent', function() {
-
-  beforeEach(function() {
-    ReactTestUtils = React.addons.TestUtils;
-  });
 
   it('should render', function() {
     var items = [];
@@ -20,7 +18,7 @@ describe('IndexComponent', function() {
     var indexItems = ReactTestUtils.scryRenderedDOMComponentsWithTag(componentInstance, 'li');
 
     expect(componentInstance).toBeDefined();
-    expect(componentInstance.refs.indexList).toBeDefined();
+    expect(componentInstance.refs['indexList']).toBeDefined();
     expect(indexItems).toBeDefined();
     expect(indexItems.length).toEqual(items.length);
   });

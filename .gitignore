@@ -1,5 +1,5 @@
 node_modules
-.idea
 npm-debug.log
-coverage
-client/build
+.idea/
+coverage/
+dist

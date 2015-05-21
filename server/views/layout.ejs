@@ -1,0 +1,14 @@
+<html>
+	<head>
+		<title>Test page</title>
+	</head>
+	<body>
+		<%-body%>
+
+    <% if (env.production) { %>
+      <script async src="/client/dist/main.min.js"></script>
+    <% } else { %>
+    <script src="http://localhost:3000/client/main.js"></script>
+    <% } %>
+  </body>
+</html>

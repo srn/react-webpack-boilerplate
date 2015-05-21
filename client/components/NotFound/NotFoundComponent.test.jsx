@@ -1,13 +1,11 @@
+jest.dontMock('./NotFoundComponent.jsx');
+
 var React = require('react/addons');
 
-var NotFound = require('./NotFoundComponent');
-var ReactTestUtils;
+var NotFound = require('./NotFoundComponent.jsx');
+var ReactTestUtils = React.addons.TestUtils;
 
 describe('NotFoundComponent', function() {
-
-  beforeEach(function() {
-    ReactTestUtils = React.addons.TestUtils;
-  });
 
   it('should render', function() {
     var instance = ReactTestUtils.renderIntoDocument(<NotFound />);
