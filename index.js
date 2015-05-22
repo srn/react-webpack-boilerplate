@@ -9,11 +9,11 @@ var layouts = require('express-ejs-layouts');
 app.set('layout');
 app.set('view engine', 'ejs');
 app.set('view options', {layout:'layout'});
-app.set('views', __dirname + '/server/views');
+app.set('views', path.join(process.cwd(), '/server/views'));
 
 app.use(compress());
 app.use(layouts);
-app.use("/client", express.static(path.join(process.cwd(), 'client')));
+app.use("/client", express.static(path.join(process.cwd(), '/client')));
 
 var env = {
   production: process.env['NODE_ENV'] === 'production'
