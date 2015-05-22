@@ -45,6 +45,12 @@ $ npm run dist
 $ npm test
 ```
 
+Only run specific tests
+
+```sh
+$ npm test -- NotFoundComponent
+```
+
 ## License
 
 MIT © [Søren Brokær](http://srn.io)
