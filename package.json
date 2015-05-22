@@ -33,7 +33,6 @@
     "ejs": "2.3.1",
     "express": "4.12.4",
     "express-ejs-layouts": "1.1.0",
-    "express-minify": "0.1.4",
     "object-assign": "2.0.0",
     "react": "0.13.3",
     "react-router": "0.13.3",

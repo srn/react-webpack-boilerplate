@@ -4,7 +4,6 @@ var express = require('express');
 var app = express();
 
 var compress = require('compression');
-var minify = require('express-minify');
 var layouts = require('express-ejs-layouts');
 
 app.set('layout');
@@ -13,7 +12,6 @@ app.set('view options', {layout:'layout'});
 app.set('views', __dirname + '/server/views');
 
 app.use(compress());
-app.use(minify());
 app.use(layouts);
 app.use("/client", express.static(path.join(process.cwd(), 'client')));
 
