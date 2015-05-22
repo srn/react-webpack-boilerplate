@@ -15,6 +15,8 @@ app.use(compress());
 app.use(layouts);
 app.use("/client", express.static(path.join(process.cwd(), '/client')));
 
+app.disable('x-powered-by');
+
 var env = {
   production: process.env['NODE_ENV'] === 'production'
 };
