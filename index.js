@@ -15,7 +15,7 @@ app.set('views', __dirname + '/server/views');
 app.use(compress());
 app.use(minify());
 app.use(layouts);
-app.use("/client", express.static(path.join(__dirname, 'client')));
+app.use("/client", express.static(path.join(process.cwd(), 'client')));
 
 var env = {
   production: process.env['NODE_ENV'] === 'production'
