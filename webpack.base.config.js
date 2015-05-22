@@ -22,7 +22,7 @@ module.exports = {
   entry: './client/entry.jsx',
 
   output: {
-    path: __dirname + '/client',
+    path: path.join(process.cwd(), '/client'),
     pathInfo: true,
     publicPath: '/client/',
     filename: 'main.js'

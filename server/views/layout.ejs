@@ -1,14 +1,15 @@
 <html>
-	<head>
-		<title>Test page</title>
-	</head>
-	<body>
-		<%-body%>
+<head>
+  <title>react-webpack-boilerplate</title>
+</head>
+  <body>
 
-    <% if (env.production) { %>
-      <script async src="/client/dist/main.min.js"></script>
-    <% } else { %>
+  <%- body %>
+
+  <% if (env.production) { %>
+    <script async src="<%= env.assets.main %>"></script>
+  <% } else { %>
     <script src="http://localhost:3000/client/main.js"></script>
-    <% } %>
+  <% } %>
   </body>
 </html>
