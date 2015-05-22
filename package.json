@@ -37,7 +37,7 @@
     "object-assign": "2.0.0",
     "react": "0.13.3",
     "react-router": "0.13.3",
-    "webpack": "1.9.7"
+    "webpack": "1.9.8"
   },
   "devDependencies": {
     "autoprefixer-loader": "1.2.0",
