@@ -19,7 +19,7 @@
   "env": {
     "NODE_ENV": {
       "description": "Set the `NODE_ENV` environment variable to `production` to disable debugging etc.",
-      "generator": "production"
+      "value": "production"
     }
   }
 }
