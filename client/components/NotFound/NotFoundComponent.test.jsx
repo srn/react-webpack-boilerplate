@@ -1,13 +1,14 @@
 jest.dontMock('./NotFoundComponent.jsx');
 
-var React = require('react/addons');
+import React from 'react/addons';
 
-var NotFound = require('./NotFoundComponent.jsx');
 var ReactTestUtils = React.addons.TestUtils;
 
-describe('NotFoundComponent', function() {
+var NotFound = require('./NotFoundComponent.jsx');
 
-  it('should render', function() {
+describe('NotFoundComponent', () => {
+
+  it('should render', () => {
     var instance = ReactTestUtils.renderIntoDocument(<NotFound />);
 
     expect(instance).toBeDefined();

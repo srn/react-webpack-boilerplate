@@ -1,13 +1,14 @@
-jest.dontMock('./IndexComponent.jsx');
+jest.dontMock('./IndexComponent');
 
-var React = require('react/addons');
+import React from 'react/addons';
 
-var IndexComponent = require('./IndexComponent.jsx');
 var ReactTestUtils = React.addons.TestUtils;
 
-describe('IndexComponent', function() {
+var IndexComponent = require('./IndexComponent.jsx');
 
-  it('should render', function() {
+describe('IndexComponent', () => {
+
+  it('should render', () => {
     var items = [];
 
     for (var i = 0; i < 2; i++) {
@@ -15,6 +16,7 @@ describe('IndexComponent', function() {
     }
 
     var componentInstance = ReactTestUtils.renderIntoDocument(<IndexComponent items={items} />);
+
     var indexItems = ReactTestUtils.scryRenderedDOMComponentsWithTag(componentInstance, 'li');
 
     expect(componentInstance).toBeDefined();
@@ -23,7 +25,7 @@ describe('IndexComponent', function() {
     expect(indexItems.length).toEqual(items.length);
   });
 
-  it('should render empty list', function() {
+  it('should render empty list', () => {
     var componentInstance = ReactTestUtils.renderIntoDocument(<IndexComponent />);
 
     expect(componentInstance).toBeDefined();

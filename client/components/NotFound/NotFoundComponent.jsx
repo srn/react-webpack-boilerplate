@@ -1,8 +1,7 @@
-var React = require('react');
+import React from 'react';
 
-var NotFoundComponent = React.createClass({
-
-  render: function() {
+export default class NotFoundComponent extends React.Component {
+  render() {
     return (
       <section>
         <h2 ref="title">404. Not found.</h2>
@@ -13,6 +12,4 @@ var NotFoundComponent = React.createClass({
       </section>
     );
   }
-});
-
-module.exports = NotFoundComponent;
+}
