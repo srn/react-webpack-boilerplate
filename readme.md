@@ -13,6 +13,10 @@ $ git clone https://github.com/srn/react-webpack-boilerplate.git && cd react-web
 $ npm install
 ```
 
+Alternatively, you can deploy your own copy with one click using this button:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/srn/react-webpack-boilerplate)
+
 ## Development
 
 ```sh
@@ -32,7 +36,7 @@ $ NODE_ENV=production npm start
 Also build the production bundle:
 
 ```sh
-$ NODE_ENV=production npm run dist
+$ npm run dist
 ```
 
 ## Tests
