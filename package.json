@@ -41,7 +41,7 @@
     "object-assign": "2.0.0",
     "react": "0.13.3",
     "react-router": "0.13.3",
-    "webpack": "1.9.9"
+    "webpack": "1.9.10"
   },
   "devDependencies": {
     "assets-webpack-plugin": "0.3.1",
