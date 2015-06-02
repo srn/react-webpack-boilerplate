@@ -29,7 +29,8 @@ config.plugins = config.plugins.concat([
 ]);
 
 config.module.loaders = config.module.loaders.concat([
-  {test: /\.jsx?$/, loaders: [ 'babel'], exclude: /node_modules/}
+  {test: /\.jsx?$/, loaders: [ 'babel'], exclude: /node_modules/},
+  {test: /\.scss$/, loader: "style!css!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded"}
 ]);
 
 module.exports = config;
