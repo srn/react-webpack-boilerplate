@@ -48,9 +48,7 @@ if (env.production === false) {
 
     hot: true,
 
-    stats: {
-      colors: true
-    },
+    stats: false,
 
     historyApiFallback: true,
 
