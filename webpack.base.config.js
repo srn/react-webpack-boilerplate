@@ -1,15 +1,15 @@
-var webpack = require("webpack");
+var webpack = require('webpack');
 
 var path = require('path');
 var objectAssign = require('object-assign');
 
-var _env = process.env['NODE_ENV'];
+var NODE_ENV = process.env.NODE_ENV;
 
 var env = {
-  production: _env === 'production',
-  staging: _env === 'staging',
-  test: _env === 'test',
-  development: _env === 'development' || typeof _env === 'undefined'
+  production: NODE_ENV === 'production',
+  staging: NODE_ENV === 'staging',
+  test: NODE_ENV === 'test',
+  development: NODE_ENV === 'development' || typeof NODE_ENV === 'undefined'
 };
 
 objectAssign(env, {
@@ -42,17 +42,17 @@ module.exports = {
       __DEV__: env.development,
       __STAGING__: env.staging,
       __PRODUCTION__: env.production,
-      __CURRENT_ENV__: "'" + (_env) + "'"
+      __CURRENT_ENV__: '\'' + (NODE_ENV) + '\''
     })
   ],
 
   module: {
     preLoaders: [
-      {test: /\.js$/, loader: "eslint-loader", exclude: /node_modules/}
+      {test: /\.js$/, loader: 'eslint-loader', exclude: /node_modules/}
     ],
 
     loaders: [
-      {test: /\.scss$/, loader: "style!css!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded"}
+      {test: /\.scss$/, loader: 'style!css!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded'}
     ],
 
     noParse: /\.min\.js/

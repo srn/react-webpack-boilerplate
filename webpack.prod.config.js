@@ -1,8 +1,6 @@
 'use strict';
 
-var path = require('path');
-
-var webpack = require("webpack");
+var webpack = require('webpack');
 var config = require('./webpack.base.config.js');
 
 var SaveAssetsJson = require('assets-webpack-plugin');
