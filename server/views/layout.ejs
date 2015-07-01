@@ -7,7 +7,7 @@
   <%- body %>
 
   <% if (env.production) { %>
-    <script async src="<%= env.assets.main %>"></script>
+    <script async src="<%= env.assets.main.js %>"></script>
   <% } else { %>
     <script src="http://localhost:3000/client/main.js"></script>
   <% } %>
