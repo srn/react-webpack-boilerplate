@@ -3,6 +3,8 @@
 var fs = require('fs');
 var path = require('path');
 
+var objectAssign = require('object-assign');
+
 var express = require('express');
 var app = express();
 
@@ -21,9 +23,14 @@ app.use('/client', express.static(path.join(process.cwd(), '/client')));
 app.disable('x-powered-by');
 
 var env = {
-  production: process.env.NODE_ENV === 'production',
-  assets: JSON.parse(fs.readFileSync(path.join(process.cwd(), 'assets.json')))
+  production: process.env.NODE_ENV === 'production'
 };
+
+if (env.production) {
+  objectAssign(env, {
+    assets: JSON.parse(fs.readFileSync(path.join(process.cwd(), 'assets.json')))
+  });
+}
 
 app.get('/*', function(req, res) {
   res.render('index', {
