@@ -56,7 +56,6 @@
     "eslint": "0.21.2",
     "eslint-loader": "0.11.2",
     "eslint-plugin-react": "2.3.0",
-    "jest": "0.1.40",
     "jest-cli": "0.4.5",
     "jsx-loader": "0.13.2",
     "node-libs-browser": "0.5.2",
