@@ -18,7 +18,7 @@ Alternatively, you can deploy your own copy with one click using this button:
 ## iojs
 
 If you'd rather want to use `iojs` you need to install a newer version of `jest` than what is currently 
-available on npm. Jest uses a newer version of `jsdom` where support for `< 0.12` has been dropped in order to move 
+available on npm. Jest uses a newer version of `jsdom` where support for `<= 0.12` has been dropped in order to move 
 the project further. As of [#374](https://github.com/facebook/jest/pull/374), Jest should work on latest io.js. 
 It's currently in a separate branch, [facebook/jest/tree/0.5.x](https://github.com/facebook/jest/tree/0.5.x), and can also be installed via npm `facebook/jest#0.5.x`.
 
