@@ -56,6 +56,12 @@ Only run specific tests
 $ npm test -- NotFoundComponent
 ```
 
+Coverage
+
+```sh
+$ npm test -- --coverage
+```
+
 ## License
 
 MIT © [Søren Brokær](http://srn.io)
