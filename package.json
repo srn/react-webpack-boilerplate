@@ -34,7 +34,7 @@
   },
   "homepage": "https://github.com/srn/react-webpack-boilerplate",
   "dependencies": {
-    "compression": "1.5.0",
+    "compression": "1.5.1",
     "ejs": "2.3.2",
     "express": "4.13.0",
     "express-ejs-layouts": "1.1.0",
