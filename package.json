@@ -40,7 +40,7 @@
     "express-ejs-layouts": "1.1.0",
     "object-assign": "3.0.0",
     "react": "0.13.3",
-    "webpack": "1.10.0"
+    "webpack": "1.10.1"
   },
   "devDependencies": {
     "assets-webpack-plugin": "2.2.0",
