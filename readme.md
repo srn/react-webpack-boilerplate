@@ -1,6 +1,4 @@
-# react-webpack-boilerplate
-[![Build Status](http://img.shields.io/travis/srn/react-webpack-boilerplate.svg?style=flat-square)](https://travis-ci.org/srn/react-webpack-boilerplate) [![Build Status](http://img.shields.io/coveralls/srn/react-webpack-boilerplate.svg?style=flat-square)](https://coveralls.io/r/srn/react-webpack-boilerplate)
-
+# react-webpack-boilerplate [![Build Status][travis-badge]][travis] [![Coverage Status][coveralls-badge]][coveralls]
 > Simple production-ready boilerplate for [React](http://facebook.github.io/react/) and [Webpack](http://webpack.github.io/) (SASS and React hot reloading)
 
 ## Install
@@ -65,3 +63,8 @@ $ npm test -- --coverage
 ## License
 
 MIT © [Søren Brokær](http://srn.io)
+
+[travis]: https://travis-ci.org/srn/react-webpack-boilerplate
+[travis-badge]: http://img.shields.io/travis/srn/react-webpack-boilerplate.svg?style=flat-square
+[coveralls]: https://coveralls.io/r/srn/react-webpack-boilerplate
+[coveralls-badge]: http://img.shields.io/coveralls/srn/react-webpack-boilerplate.svg?style=flat-square
