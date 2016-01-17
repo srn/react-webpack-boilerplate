@@ -34,7 +34,7 @@ module.exports = {
       'node_modules',
       'client'
     ],
-    extentions: ['js', 'jsx', 'scss']
+    extensions: ['js', 'jsx', 'scss']
   },
 
   plugins: [
