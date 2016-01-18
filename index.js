@@ -3,8 +3,6 @@
 var fs = require('fs');
 var path = require('path');
 
-var objectAssign = require('object-assign');
-
 var express = require('express');
 var app = express();
 
@@ -27,7 +25,7 @@ var env = {
 };
 
 if (env.production) {
-  objectAssign(env, {
+  Object.assign(env, {
     assets: JSON.parse(fs.readFileSync(path.join(process.cwd(), 'assets.json')))
   });
 }
