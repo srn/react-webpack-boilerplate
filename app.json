@@ -19,7 +19,7 @@
       "value": "production"
     },
     "NPM_CONFIG_PRODUCTION": {
-      "description": "Be default heroku is not installing `devDependencies`, so let's do that.",
+      "description": "By default Heroku is not installing `devDependencies`, so let's do that.",
       "value": "false"
     }
   }
