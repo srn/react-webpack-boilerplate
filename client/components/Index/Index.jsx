@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default class IndexComponent extends React.Component {
+class IndexComponent extends Component {
   render() {
     if (this.props.items.length === 0) {
       return (
@@ -24,3 +24,5 @@ export default class IndexComponent extends React.Component {
 IndexComponent.defaultProps = {
   items: []
 };
+
+export default IndexComponent;

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default class NotFoundComponent extends React.Component {
+class NotFound extends Component {
   render() {
     return (
       <section>
@@ -13,3 +13,5 @@ export default class NotFoundComponent extends React.Component {
     );
   }
 }
+
+export default NotFound;

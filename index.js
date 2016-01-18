@@ -44,21 +44,16 @@ app.listen(port, function () {
 if (env.production === false) {
   var webpack = require('webpack');
   var WebpackDevServer = require('webpack-dev-server');
-  var webpackConfig = require('./webpack.dev.config');
 
-  new WebpackDevServer(webpack(webpackConfig), {
+  var webpackDevConfig = require('./webpack.config.development');
+
+  new WebpackDevServer(webpack(webpackDevConfig), {
     publicPath: '/client/',
-
     contentBase: './client/',
-
     inline: true,
-
     hot: true,
-
     stats: false,
-
     historyApiFallback: true,
-
     headers: {
       'Access-Control-Allow-Origin': 'http://localhost:3001',
       'Access-Control-Allow-Headers': 'X-Requested-With'

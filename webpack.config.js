@@ -1,4 +1,1 @@
-var isProduction = process.env.NODE_ENV === 'production';
-var config = isProduction ? require('./webpack.prod.config.js') : require('./webpack.base.config.js');
-
-module.exports = config;
+module.exports = process.env.NODE_ENV === 'production' ? require('./webpack.config.production.js') : require('./webpack.config.base.js');

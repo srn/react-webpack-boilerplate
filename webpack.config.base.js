@@ -1,7 +1,5 @@
-var webpack = require('webpack');
-
 var path = require('path');
-var objectAssign = require('object-assign');
+var webpack = require('webpack');
 
 var NODE_ENV = process.env.NODE_ENV;
 
@@ -12,14 +10,17 @@ var env = {
   development: NODE_ENV === 'development' || typeof NODE_ENV === 'undefined'
 };
 
-objectAssign(env, {
+Object.assign(env, {
   build: (env.production || env.staging)
 });
 
 module.exports = {
   target: 'web',
 
-  entry: './client/entry.jsx',
+  entry: [
+    'babel-polyfill',
+    './client/main.jsx'
+  ],
 
   output: {
     path: path.join(process.cwd(), '/client'),
@@ -29,12 +30,13 @@ module.exports = {
   },
 
   resolve: {
+    root: path.join(__dirname, ''),
     modulesDirectories: [
       'web_modules',
       'node_modules',
       'client'
     ],
-    extentions: ['js', 'jsx', 'scss']
+    extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx']
   },
 
   plugins: [
@@ -47,15 +49,10 @@ module.exports = {
   ],
 
   module: {
-    preLoaders: [
-      {test: /\.js$/, loader: 'eslint-loader', exclude: /node_modules/}
-    ],
-
     loaders: [
       {test: /\.scss$/, loader: 'style!css!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded'}
     ],
 
     noParse: /\.min\.js/
   }
-
 };
