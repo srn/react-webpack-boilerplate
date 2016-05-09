@@ -41,8 +41,8 @@
     "ejs": "2.4.1",
     "express": "4.13.4",
     "express-ejs-layouts": "2.0.0",
-    "react": "0.14.6",
-    "react-dom": "0.14.6",
+    "react": "15.0.2",
+    "react-dom": "15.0.2",
     "webpack": "1.12.12"
   },
   "devDependencies": {
